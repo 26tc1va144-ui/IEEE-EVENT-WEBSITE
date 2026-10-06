@@ -8,10 +8,6 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
-      - key: MONGODB_URI
-        sync: false
       - key: JWT_SECRET
         sync: false
       - key: JWT_EXPIRE
@@ -29,8 +25,6 @@ services:
       - key: SMTP_PASS
         sync: false
       - key: EMAIL_FROM
-        sync: false
-      - key: CLIENT_URL
         sync: false
       - key: ADMIN_EMAIL
         sync: false
