@@ -72,6 +72,16 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Serve frontend if in production
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
+  const path = require('path');
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
