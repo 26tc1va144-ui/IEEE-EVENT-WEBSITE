@@ -4,8 +4,7 @@ require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
-const morgan = require('morgan');
-const connectDB = require('./config/db');
+// Removed Mongoose connectDB call since we are using local JSON file
 
 // Import routes
 const registrationRoutes = require('./routes/registration');
@@ -14,9 +13,6 @@ const adminRoutes = require('./routes/admin');
 const eventRoutes = require('./routes/event');
 
 const app = express();
-
-// Connect to MongoDB
-connectDB();
 
 // Security middleware
 app.use(helmet());
